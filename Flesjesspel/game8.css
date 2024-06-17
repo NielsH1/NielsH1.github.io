@@ -17,7 +17,7 @@ body {
     height: 90%; /* Hoogte van de box */
     border-radius: 20px; /* Afgeronde hoeken */
     overflow: hidden; /* Voorkomt dat de afbeelding buiten de box gaat */
-    background-image: url('afbeelding.jpg'); /* Achtergrondafbeelding */
+    background-image: url('/images/afbeelding.jpg'); /* Achtergrondafbeelding */
     background-size: cover; /* Zorg ervoor dat de afbeelding de hele box bedekt */
     background-position: center; /* Uitlijning van de achtergrondafbeelding */
 }
