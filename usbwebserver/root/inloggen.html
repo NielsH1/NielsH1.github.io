@@ -1,0 +1,41 @@
+<?php
+session_start ();
+error_reporting(E_ERROR); 
+?> 
+<!DOCTYPE html>
+ <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Inloggen</title>
+	</head>
+	<body>
+		<form action="inloggen.php" method="post">
+			Gebruikersnaam: <input type="text" name="user" /><br /><br />
+			Wachtwoord: <input type="password" name="pass" /><br /><br />
+			<input type="submit" name="verzend" value="INLOGGEN" />
+		</form>
+		<br /><br />
+		<br /><br />
+	<a href="mijn_pagina.php">Ga naar mijn supergeheime webpagina</a>
+	</body>
+</html>
+<?php
+	if(isset($_POST["verzend"]))
+	{
+		
+		$user = $_POST["user"];
+		$pass = $_POST["pass"];
+		
+		if($user == "BoesBoes" && $pass == "SuperGeheim")
+		{
+			echo "Hallo $user je bent correct ingelogd.";
+			$_SESSION["ingelogd"] = 1;
+		}
+		
+		else
+		{
+			echo"Oeps foute inloggegevens!";
+		}
+	}
+		
+?>
