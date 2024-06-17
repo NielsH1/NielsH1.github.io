@@ -112,7 +112,7 @@
             document.getElementById('bottles').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('game-over').style.display = 'block';
-            document.getElementById('final-score').textContent = `Je bent klaar goed gedaan! Je tijd was: ${currentTime} seconden`;
+            document.getElementById('final-score').textContent = `Well done! Your time was: ${currentTime} seconds`;
         }
         function redirectToEndPage() {
             const url = `homescreen1.html?time=${currentTime}`;
