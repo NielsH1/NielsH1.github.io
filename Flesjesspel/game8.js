@@ -115,7 +115,7 @@
             document.getElementById('final-score').textContent = `Well done! Your time was: ${currentTime} seconds`;
         }
         function redirectToEndPage() {
-            const url = `homescreen1.html?time=${currentTime}`;
+            const url = `index.html?time=${currentTime}`;
             window.location.href = url;
         }
 
