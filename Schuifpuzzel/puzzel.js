@@ -1,5 +1,3 @@
-// toevoegen dat als timer op is je geen stukjes meer kunt verplaatsen + time up msg midden boven in scherm net als de congratulations
-
 document.addEventListener("DOMContentLoaded", () => {
     const puzzleBoard = document.getElementById("puzzle-board");
     const piecesBoard = document.getElementById("pieces-board");
@@ -9,13 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Timer (placement nog maken)
     const timerDisplay = document.createElement('div');
     timerDisplay.id = 'timer';
-    timerDisplay.textContent = "Time remaining: 2:00";
+    timerDisplay.textContent = "Time elapsed: 0:00";
     document.body.appendChild(timerDisplay);
 
     const puzzleImageSrc = "img/jungle.jpg"; // Plaatje
     const pieces = 16; // Hoeveel puzzelstukjes
-    let timeLeft = 120; 
+    let elapsedTime = 0; 
     let puzzleCompleted = false;
+    const timeLimit = 120; // Tijdslimiet in seconden
     let remainingTime = 0; // Opslaan van overige tijd
     let activePiece = null; // Welk stukje we verplaatsen, bijhouden zodat we later functionaliteit configureren
 
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (completed) {
             puzzleCompleted = true;
-            remainingTime = timeLeft + 1; // Opslaan van overige tijd
+            remainingTime = elapsedTime; // Opslaan van overige tijd
             clearInterval(countdownTimer);
             showCompletionMessage();
         }
@@ -100,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         seconds = seconds < 10 ? '0' + seconds : seconds;
         completionMessage.innerHTML = `
             <h1>You've completed the puzzle and revealed a beautiful world!</h1>
-            <p>Remaining time: ${minutes}:${seconds}</p>
+            <p>Elapsed time: ${minutes}:${seconds}</p>
             <button id="next" onclick="window.location.href = '/Homescreens/homescreen2.html';">NEXT</button>
         `;
 
@@ -111,18 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Timer update
     function updateTimer() {
-        if (timeLeft <= 0 || puzzleCompleted) {
+        if (elapsedTime >= timeLimit) {
             clearInterval(countdownTimer);
-            if (!puzzleCompleted) {
-                timerDisplay.textContent = "Unfortunately, time's up.";
-            }
+            timerDisplay.textContent = "Time's up!";
+            // Voeg hier de code toe om de stukjes onklikbaar te maken
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            pieces.forEach(piece => piece.draggable = false);
         } else {
-            const minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
+            const minutes = Math.floor(elapsedTime / 60);
+            let seconds = elapsedTime % 60;
             seconds = seconds < 10 ? '0' + seconds : seconds;
-            timerDisplay.textContent = `Time remaining: ${minutes}:${seconds}`;
+            timerDisplay.textContent = `Time elapsed: ${minutes}:${seconds}`;
         }
-        timeLeft--;
+        elapsedTime++; // Verhoog de tijd
     }
 
     // Laden van pagina
