@@ -11,9 +11,9 @@
         <img src="/images/vlinder.png" alt="" id="vlinder">
         <h1>LEVELS</h1> 
         <div class="levels-grid">
-            <a href="/Schuifpuzzel/puzzel.html" class="lv1"><div class="element">1</div></a>
-            <a href="/Flesjesspel/game8.html" class="level"><div class="element">2</div></a>
-            <a href="/Vlaggenspel/index.html" class="level"><div class="element">3</div></a>
+            <button class="lv1" id="openPopupBtn"><div class="element">1</div></button>
+            <button class="level" id="openPopupBtn2"><div class="element">2</div></button>
+            <button class="level" id="openPopupBtn3"><div class="element">3</div></button>
             <a href="#" class="level"><div class="element">4</div></a>
             <a href="#" class="level"><div class="element">5</div></a>
             <a href="#" class="level"><div class="element">6</div></a>
@@ -44,5 +44,30 @@
     <div class="wood-container">
         <img src="/images/Firefly houten planken achtergrond. Alleen planken, voor de rest niks 1.png" alt="" id="wood">
     </div>
+    <div id="overlay" class="overlay">
+      <div class="popup">
+          <span class="closeBtn" id="closePopupBtn">&times;</span>
+          <h2>START LEVEL 1?</h2>
+          <a href="/Schuifpuzzel/puzzel.html"><button id="next">START</button></a>
+          <a href="javascript:javascript:history.go(-1)"><button id="back">BACK</button></a>
+      </div>
+    </div>
+    <div id="overlay2" class="overlay">
+      <div class="popup">
+          <span class="closeBtn" id="closePopupBtn">&times;</span>
+          <h2>START LEVEL 2?</h2>
+          <a href="/Flesjesspel/game8.html"><button id="next">START</button></a>
+          <a href="javascript:javascript:history.go(-1)"><button id="back">BACK</button></a>
+      </div>
+    </div>
+    <div id="overlay3" class="overlay">
+      <div class="popup">
+          <span class="closeBtn" id="closePopupBtn">&times;</span>
+          <h2>START LEVEL 3?</h2>
+          <a href="/Vlaggenspel/index.html"><button id="next">START</button></a>
+          <a href="javascript:javascript:history.go(-1)"><button id="back">BACK</button></a>
+      </div>
+    </div>
+    <script src="/scripts/popup.js"></script>
   </body>
 </html>
