@@ -84,7 +84,7 @@
                 score++;
                 document.getElementById('score').textContent = 'Score: ' + score;
                 correctAnswers++; // Het aantal goede antwoorden verhogen
-                if (score >= 8) { // Als de score 8 bereikt is, stop de timer en het spel
+                if (score >= 1) { // Als de score 8 bereikt is, stop de timer en het spel
                     clearInterval(timerInterval);
                     redirectToEndPage();
                 } else {
