@@ -49,7 +49,7 @@
             }
 
             correctAnswer = bottleCount;
-            document.getElementById('sumQuestion').textContent = `Hoeveel flesjes? ${generateSumQuestion()}`;
+            document.getElementById('sumQuestion').textContent = `How many bottles? ${generateSumQuestion()}`;
         }
 
         function generateSumQuestion() {
@@ -76,7 +76,7 @@
         function showQuestion() {
             document.getElementById('bottles').style.display = 'none';
             document.getElementById('overlay').style.display = 'flex';
-            document.getElementById('sumQuestion').textContent = `Hoeveel flesjes? ${generateSumQuestion()}`;
+            document.getElementById('sumQuestion').textContent = `How many bottles? ${generateSumQuestion()}`;
         }
         function checkAnswer() {
             const answer = parseInt(document.getElementById('answer').value, 10);
@@ -104,7 +104,7 @@
         function startTimer() {
             timerInterval = setInterval(() => {
                 currentTime++; // Timer laten oplopen
-                document.getElementById('timer').textContent = 'Tijd: ' + currentTime;
+                document.getElementById('timer').textContent = 'Time: ' + currentTime;
             }, 1000);
         }
 
